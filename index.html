@@ -6,17 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #FFFFFF; /* Ny baggrundsfarve */
+      background: #FFFFFF; /* Hvid baggrund */
       color: #111111;
       font-family: "Helvetica Neue", Helvetica, Arial, system-ui,
         -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      /* BAGGRUNDSBILLEDE */
+      background-image: url("macinato-logo.jpeg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 55%;   /* juster størrelse */
+      opacity: 0.95;
+    }
+
+    /* LAYER trick så teksten ikke bliver påvirket af opacitet */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("macinato-logo.jpeg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 45%;
+      opacity: 0.06;        /* bestem hvor synligt logoet er */
+      z-index: -1;
     }
 
     .wrapper {
@@ -24,19 +48,7 @@
       padding: 2rem;
       max-width: 720px;
       position: relative;
-    }
-
-    .logo {
-      display: block;
-      margin: 0 auto;
-      max-width: 200px;
-      width: 35vw;
-      height: auto;
-
-      /* Rykker logoet ned så det overlapper teksten ca. 1 cm */
-      margin-bottom: -25px;
-      position: relative;
-      z-index: 2;
+      z-index: 10; /* teksten ligger ovenpå baggrund */
     }
 
     .headline {
@@ -44,8 +56,6 @@
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       letter-spacing: 0.02em;
       text-transform: uppercase;
-      position: relative;
-      z-index: 1;
     }
 
     .headline + .headline {
@@ -64,17 +74,12 @@
 
 <body>
   <div class="wrapper">
-
-    <!-- Logoet skal fortsat hedde 'macinato-logo.jpeg' og ligge i samme mappe -->
-    <img src="macinato-logo.jpeg" alt="Macinato" class="logo" />
-
     <p class="headline">Sæt kaffen over,</p>
     <p class="headline">og forbered dig på et nyt smagsunivers.</p>
 
     <p class="subtext">
       Vi brygger noget nyt til dig – siden er snart klar.
     </p>
-
   </div>
 </body>
 </html>
