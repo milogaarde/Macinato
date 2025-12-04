@@ -15,8 +15,8 @@
       justify-content: center;
       background: #FFFFFF;
       color: #111111;
-      font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Helvetica Neue", Helvetica, Arial, system-ui,
+        -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .wrapper {
@@ -28,10 +28,7 @@
     .logo {
       display: block;
       margin: 0 auto;
-
-      /* 💡 JUSTÉR AFSTANDEN MELLEM LOGO & TEKST HER */
-      margin-bottom: -14px; 
-      
+      margin-bottom: -5px; /* justér afstand */
       max-width: 200px;
       width: 35vw;
       height: auto;
@@ -55,13 +52,42 @@
       opacity: 0.55;
       text-transform: uppercase;
     }
+
+    /* Instagram-knap styling */
+    .insta-btn {
+      margin-top: 2.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border: 1.5px solid #111;
+      border-radius: 40px;
+      text-decoration: none;
+      color: #111;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
+
+    /* Hover-effekt */
+    .insta-btn:hover {
+      background: #111;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .insta-icon {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+    }
   </style>
 </head>
 
 <body>
   <div class="wrapper">
 
-    <!-- Logoet skal hedde 'macinato-logo.jpeg' -->
     <img src="macinato-logo.jpeg" alt="Macinato" class="logo" />
 
     <p class="headline">Sæt kaffen over,</p>
@@ -70,6 +96,22 @@
     <p class="subtext">
       Vi brygger noget nyt til dig – siden er snart klar.
     </p>
+
+    <!-- Instagram-knap -->
+    <a 
+      class="insta-btn"
+      href="https://www.instagram.com/macinato_coffee?igsh=a3F4c2xhcGVjN29n&utm_source=qr"
+      target="_blank"
+    >
+      Følg os på Instagram
+
+      <!-- Simple sort Instagram-ikon (inline SVG = virker altid) -->
+      <svg class="insta-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+    </a>
 
   </div>
 </body>
