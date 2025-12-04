@@ -2,73 +2,75 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8" />
-  <title>Snart åbner et nyt smagsunivers</title>
+  <title>Macinato – Snart åbner et nyt smagsunivers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at top, #0b1020 0%, #02030a 40%, #000000 100%);
-      color: rgba(255, 255, 255, 0.85);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #FAF9F6;
+      color: #111111;
+      font-family: "Helvetica Neue", Helvetica, Arial, system-ui,
+        -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
     .wrapper {
       text-align: center;
       padding: 2rem;
-      max-width: 700px;
+      max-width: 720px;
     }
-    .headline {
-      font-weight: 300;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      line-height: 1.4;
-      letter-spacing: 0.03em;
-    }
-    .highlight {
+
+    .logo {
       display: block;
-      margin-top: 0.75rem;
-      font-weight: 400;
+      margin: 0 auto 2.5rem auto;
+      max-width: 220px;
+      width: 40vw;
+      height: auto;
     }
-    .subtext {
-      margin-top: 2rem;
-      font-size: 0.95rem;
-      opacity: 0.7;
-      letter-spacing: 0.08em;
+
+    .headline {
+      font-weight: 500;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      letter-spacing: 0.02em;
       text-transform: uppercase;
     }
-    .glow {
-      position: fixed;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(74, 106, 255, 0.25), transparent 65%);
-      filter: blur(6px);
-      opacity: 0.6;
-      top: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: -1;
+
+    .headline + .headline {
+      margin-top: 0.35rem;
+    }
+
+    .subtext {
+      margin-top: 1.8rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      opacity: 0.55;
+      text-transform: uppercase;
     }
   </style>
 </head>
-<body>
-  <div class="glow"></div>
 
+<body>
   <div class="wrapper">
-    <p class="headline">
-      Sæt kaffen over,
-      <span class="highlight">og forbered dig på et nyt smagsunivers.</span>
-    </p>
+
+    <!-- Logoet skal ligge i samme mappe som denne fil og hedde 'macinato-logo.jpeg' -->
+    <img src="macinato-logo.jpeg" alt="Macinato" class="logo" />
+
+    <p class="headline">Sæt kaffen over,</p>
+    <p class="headline">og forbered dig på et nyt smagsunivers.</p>
+
     <p class="subtext">
-      Vi brygger noget nyt til dig &mdash; siden er snart klar.
+      Vi brygger noget nyt til dig – siden er snart klar.
     </p>
+
   </div>
 </body>
 </html>
