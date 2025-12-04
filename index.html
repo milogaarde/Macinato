@@ -6,18 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #FAF9F6;
+      background: #FFFFFF; /* Ny baggrundsfarve */
       color: #111111;
       font-family: "Helvetica Neue", Helvetica, Arial, system-ui,
         -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -27,14 +23,20 @@
       text-align: center;
       padding: 2rem;
       max-width: 720px;
+      position: relative;
     }
 
     .logo {
       display: block;
-      margin: 0 auto 2.5rem auto;
-      max-width: 220px;
-      width: 40vw;
+      margin: 0 auto;
+      max-width: 200px;
+      width: 35vw;
       height: auto;
+
+      /* Rykker logoet ned så det overlapper teksten ca. 1 cm */
+      margin-bottom: -25px;
+      position: relative;
+      z-index: 2;
     }
 
     .headline {
@@ -42,6 +44,8 @@
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       letter-spacing: 0.02em;
       text-transform: uppercase;
+      position: relative;
+      z-index: 1;
     }
 
     .headline + .headline {
@@ -49,7 +53,7 @@
     }
 
     .subtext {
-      margin-top: 1.8rem;
+      margin-top: 1.6rem;
       font-size: 0.95rem;
       letter-spacing: 0.06em;
       opacity: 0.55;
@@ -61,7 +65,7 @@
 <body>
   <div class="wrapper">
 
-    <!-- Logoet skal ligge i samme mappe som denne fil og hedde 'macinato-logo.jpeg' -->
+    <!-- Logoet skal fortsat hedde 'macinato-logo.jpeg' og ligge i samme mappe -->
     <img src="macinato-logo.jpeg" alt="Macinato" class="logo" />
 
     <p class="headline">Sæt kaffen over,</p>
