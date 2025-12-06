@@ -126,7 +126,6 @@
       opacity: 1;
     }
 
-    /* Footer */
     .footer {
       margin-top: 3rem;
       text-align: center;
@@ -153,7 +152,7 @@
     
     <!-- LOGO -->
     <div class="logo-wrap">
-      <img src="macinato-logo.PNG" alt="Macinato" class="logo" />
+      <img src="macinato-logo.jpeg" alt="Macinato" class="logo" />
     </div>
 
     <!-- INTRO -->
@@ -212,16 +211,16 @@
   </div>
 
   <script>
-    // Hover-effect lysfelt
+    // Hover lysfelt
     document.querySelectorAll('.card-link').forEach(card => {
       const overlay = card.querySelector('.card-overlay');
 
       card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        const x = e.clientX - r.left;
-        const y = e.clientY - r.top;
-        overlay.style.setProperty('--mx', (x / r.width) * 100 + '%');
-        overlay.style.setProperty('--my', (y / r.height) * 100 + '%');
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        overlay.style.setProperty('--mx', (x / rect.width) * 100 + '%');
+        overlay.style.setProperty('--my', (y / rect.height) * 100 + '%');
       });
     });
   </script>
