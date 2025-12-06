@@ -14,33 +14,24 @@
 
     body {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000000;
+      background: #FFFFFF; /* Helt hvid, ud til kanterne */
       font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system,
         BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: #111111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .shell {
-      background: #FFFFFF;
-      max-width: 1200px;
+    .page {
       width: 100%;
-      margin: 2rem;
-      padding: 2.2rem 2.4rem 2.6rem;
-      border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr) 180px;
-      grid-template-rows: auto auto;
-      gap: 1.8rem 2.4rem;
+      max-width: 1200px;
+      padding: 2.5rem 1.5rem 3rem;
     }
 
     .logo-wrap {
-      grid-column: 1 / 4;
       text-align: center;
-      margin-bottom: 0.2rem;
+      margin-bottom: 1.6rem;
     }
 
     .logo {
@@ -49,39 +40,40 @@
       height: auto;
     }
 
-    /* Venstre menu */
-    .side-menu {
-      align-self: flex-start;
+    .intro {
+      text-align: center;
+      margin-bottom: 2.4rem;
+    }
+
+    .intro-kicker {
       font-size: 0.8rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 0.4rem;
+    }
+
+    .intro-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .intro-text {
+      font-size: 0.95rem;
+      max-width: 32rem;
+      margin: 0 auto;
       opacity: 0.8;
     }
 
-    .side-menu ul {
-      list-style: none;
-    }
-
-    .side-menu li + li {
-      margin-top: 0.5rem;
-    }
-
-    .side-menu a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .side-menu a:hover {
-      opacity: 1;
-      text-decoration: underline;
-    }
-
-    /* Grid med billeder */
-    .card-grid {
+    /* Billed-række */
+    .card-row {
+      margin-top: 2.8rem;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.75rem;
-      align-self: flex-end;
+      gap: 1rem;
     }
 
     .card-link {
@@ -115,7 +107,7 @@
           rgba(255, 255, 255, 0.3),
           transparent 55%
         ),
-        linear-gradient(145deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+        linear-gradient(145deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7));
       opacity: 0;
       transition: opacity 0.35s ease;
     }
@@ -151,48 +143,20 @@
       opacity: 1;
     }
 
-    /* Højre info */
-    .side-info {
-      align-self: flex-start;
-      font-size: 0.8rem;
-      text-align: right;
-      opacity: 0.85;
-    }
-
-    .side-info-title {
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      font-size: 0.75rem;
-      opacity: 0.7;
-    }
-
-    .side-info strong {
-      display: block;
-    }
-
-    .side-info small {
-      display: block;
-      margin-top: 0.3rem;
-      opacity: 0.7;
-    }
-
-    /* bundlinje/tagline */
-    .tagline {
-      grid-column: 1 / 4;
-      font-size: 0.9rem;
-      opacity: 0.8;
+    /* Bundlinje med insta */
+    .footer {
+      margin-top: 2.4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      border-top: 1px solid #f0f0f0;
-      padding-top: 0.9rem;
-      margin-top: 0.2rem;
+      font-size: 0.85rem;
+      opacity: 0.8;
+      flex-wrap: wrap;
     }
 
-    .tagline span {
-      font-size: 0.78rem;
+    .footer span {
+      font-size: 0.8rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       opacity: 0.7;
@@ -220,64 +184,43 @@
 
     /* Responsiv */
     @media (max-width: 900px) {
-      .shell {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        padding: 1.8rem 1.4rem 2rem;
-      }
-
-      .logo-wrap {
-        grid-column: 1 / 2;
-      }
-
-      .side-menu,
-      .side-info {
-        text-align: left;
-      }
-
-      .side-info {
-        order: 3;
-      }
-
-      .card-grid {
+      .card-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        order: 2;
-      }
-
-      .tagline {
-        grid-column: 1 / 2;
-        flex-direction: column;
-        align-items: flex-start;
       }
     }
 
     @media (max-width: 600px) {
-      .card-grid {
+      .card-row {
         grid-template-columns: 1fr;
+      }
+
+      .page {
+        padding-inline: 1.2rem;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
-  <main class="shell">
-    <!-- Logo -->
+  <div class="page">
     <div class="logo-wrap">
       <img src="macinato-logo.jpeg" alt="Macinato" class="logo" />
     </div>
 
-    <!-- Venstre menu -->
-    <aside class="side-menu">
-      <ul>
-        <li><a href="#forside">Forside</a></li>
-        <li><a href="#omos">Om os</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#find-os">Find os</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </aside>
+    <section class="intro">
+      <div class="intro-kicker">Macinato Coffee</div>
+      <h1 class="intro-title">Et nyt smagsunivers af kaffe.</h1>
+      <p class="intro-text">
+        En stille hyldest til gode bønner, roligt tempo og nysgerrighed på smag.
+        Her får du et overblik over vores univers – fra rødderne til koppen.
+      </p>
+    </section>
 
-    <!-- Billed-grid -->
-    <section class="card-grid" id="forside">
+    <section class="card-row">
       <a class="card-link" href="#omos" data-color="#1D4ED8">
         <img src="origin.png" alt="Kaffefarm og landskab" />
         <div class="card-overlay"></div>
@@ -301,7 +244,7 @@
         <div class="card-overlay"></div>
         <div class="card-content">
           <div class="card-kicker">Roastery</div>
-          <div class="card-title">Håndværket bag hver ristning.</div>
+          <div class="card-title">Håndværket bag ristningen.</div>
         </div>
       </a>
 
@@ -315,17 +258,8 @@
       </a>
     </section>
 
-    <!-- Højre info -->
-    <aside class="side-info">
-      <div class="side-info-title">Snart i koppen</div>
-      <strong>Macinato Coffee</strong>
-      <span>Tønder · Danmark</span>
-      <small>Åbner i 2025 · Følg med for dato, events og limited roasts.</small>
-    </aside>
-
-    <!-- Bundlinje -->
-    <div class="tagline">
-      <span>Et lille kafferum med plads til store smage.</span>
+    <div class="footer">
+      <span>Tønder · Danmark · Åbner i 2025</span>
 
       <a
         class="insta-link"
@@ -342,7 +276,7 @@
         </svg>
       </a>
     </div>
-  </main>
+  </div>
 
   <script>
     // Lys-spot hover-effekt på kortene
