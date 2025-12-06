@@ -2,7 +2,7 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8" />
-  <title>Macinato – Et nyt smagsunivers af kaffe</title>
+  <title>Macinato – Forside</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -13,66 +13,52 @@
     }
 
     body {
-      min-height: 100vh;
-      background: #FFFFFF; /* Helt hvid, ud til kanterne */
-      font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #111111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #FFFFFF;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #111;
     }
 
     .page {
-      width: 100%;
       max-width: 1200px;
-      padding: 2.5rem 1.5rem 3rem;
+      margin: 0 auto;
+      padding: 2rem 1.2rem 3rem;
     }
 
     .logo-wrap {
       text-align: center;
-      margin-bottom: 1.6rem;
+      margin-bottom: 2rem;
     }
 
     .logo {
-      max-width: 220px;
-      width: 40vw;
+      max-width: 200px;
       height: auto;
     }
 
     .intro {
       text-align: center;
-      margin-bottom: 2.4rem;
-    }
-
-    .intro-kicker {
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      opacity: 0.6;
-      margin-bottom: 0.4rem;
+      margin-bottom: 3rem;
     }
 
     .intro-title {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      font-size: clamp(2rem, 4vw, 2.6rem);
       text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.03em;
       margin-bottom: 0.8rem;
     }
 
     .intro-text {
-      font-size: 0.95rem;
-      max-width: 32rem;
+      font-size: 1rem;
+      max-width: 480px;
       margin: 0 auto;
-      opacity: 0.8;
+      opacity: 0.75;
+      line-height: 1.6;
     }
 
-    /* Billed-række */
+    /* Billed-grid */
     .card-row {
-      margin-top: 2.8rem;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
     }
 
@@ -80,11 +66,11 @@
       position: relative;
       display: block;
       overflow: hidden;
-      border-radius: 16px;
-      background: #050505;
-      color: #ffffff;
+      border-radius: 14px;
+      background: #000;
+      color: #fff;
       text-decoration: none;
-      min-height: 160px;
+      min-height: 200px;
       cursor: pointer;
     }
 
@@ -94,28 +80,25 @@
       object-fit: cover;
       display: block;
       transform: scale(1.02);
-      transition: transform 0.35s ease;
+      transition: transform 0.3s ease;
     }
 
     .card-overlay {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background:
-        radial-gradient(
-          circle at var(--mx, 50%) var(--my, 50%),
-          rgba(255, 255, 255, 0.3),
-          transparent 55%
-        ),
-        linear-gradient(145deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7));
       opacity: 0;
-      transition: opacity 0.35s ease;
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+        rgba(255,255,255,0.35),
+        transparent 60%);
+      transition: opacity 0.3s ease;
     }
 
     .card-content {
       position: absolute;
       inset: 0;
-      padding: 0.9rem 0.9rem;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -123,11 +106,11 @@
     }
 
     .card-kicker {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
+      font-size: 0.65rem;
       text-transform: uppercase;
-      opacity: 0.86;
-      margin-bottom: 0.25rem;
+      letter-spacing: 0.15em;
+      opacity: 0.9;
+      margin-bottom: 0.2rem;
     }
 
     .card-title {
@@ -136,56 +119,24 @@
     }
 
     .card-link:hover img {
-      transform: scale(1.07);
+      transform: scale(1.08);
     }
 
     .card-link:hover .card-overlay {
       opacity: 1;
     }
 
-    /* Bundlinje med insta */
+    /* Footer */
     .footer {
-      margin-top: 2.4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.85rem;
-      opacity: 0.8;
-      flex-wrap: wrap;
-    }
-
-    .footer span {
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      margin-top: 3rem;
+      text-align: center;
       opacity: 0.7;
+      font-size: 0.85rem;
     }
 
-    .insta-link {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #111;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .insta-link:hover {
-      text-decoration: underline;
-    }
-
-    .insta-icon {
-      width: 15px;
-      height: 15px;
-    }
-
-    /* Responsiv */
     @media (max-width: 900px) {
       .card-row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -193,117 +144,84 @@
       .card-row {
         grid-template-columns: 1fr;
       }
-
-      .page {
-        padding-inline: 1.2rem;
-      }
-
-      .footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
+    
+    <!-- LOGO -->
     <div class="logo-wrap">
-      <img src="macinato-logo.jpeg" alt="Macinato" class="logo" />
+      <img src="macinato-logo.PNG" alt="Macinato" class="logo" />
     </div>
 
+    <!-- INTRO -->
     <section class="intro">
-      <div class="intro-kicker">Macinato Coffee</div>
       <h1 class="intro-title">Et nyt smagsunivers af kaffe.</h1>
       <p class="intro-text">
-        En stille hyldest til gode bønner, roligt tempo og nysgerrighed på smag.
-        Her får du et overblik over vores univers – fra rødderne til koppen.
+        Velkommen til Macinato. Her kan du gå på opdagelse i vores univers – fra rødderne til koppen.
       </p>
     </section>
 
+    <!-- BILLEDER I RÆKKE -->
     <section class="card-row">
-      <a class="card-link" href="#omos" data-color="#1D4ED8">
-        <img src="origin.png" alt="Kaffefarm og landskab" />
+      
+      <a class="card-link" href="#omos">
+        <img src="origin.PNG" alt="Rødder" />
         <div class="card-overlay"></div>
         <div class="card-content">
           <div class="card-kicker">Rødder</div>
-          <div class="card-title">Hvor kaffen begynder.</div>
+          <div class="card-title">Hvor kaffen begynder</div>
         </div>
       </a>
 
-      <a class="card-link" href="#shop" data-color="#B45309">
-        <img src="beans.png" alt="Kaffebønner og poser" />
+      <a class="card-link" href="#kaffe">
+        <img src="beans.PNG" alt="Kaffen" />
         <div class="card-overlay"></div>
         <div class="card-content">
           <div class="card-kicker">Kaffen</div>
-          <div class="card-title">Profiler, bønner og bryg.</div>
+          <div class="card-title">Profiler & bryg</div>
         </div>
       </a>
 
-      <a class="card-link" href="#roastery" data-color="#059669">
-        <img src="roastery.png" alt="Risteri" />
+      <a class="card-link" href="#roastery">
+        <img src="roastery.PNG" alt="Roastery" />
         <div class="card-overlay"></div>
         <div class="card-content">
           <div class="card-kicker">Roastery</div>
-          <div class="card-title">Håndværket bag ristningen.</div>
+          <div class="card-title">Håndværket bag ristningen</div>
         </div>
       </a>
 
-      <a class="card-link" href="#find-os" data-color="#BE185D">
-        <img src="cafe.png" alt="Café og stemning" />
+      <a class="card-link" href="#cafe">
+        <img src="cafe.PNG" alt="Caféen" />
         <div class="card-overlay"></div>
         <div class="card-content">
           <div class="card-kicker">Caféen</div>
-          <div class="card-title">Rummet, lyset og koppen.</div>
+          <div class="card-title">Rummet og koppen</div>
         </div>
       </a>
+
     </section>
 
     <div class="footer">
-      <span>Tønder · Danmark · Åbner i 2025</span>
-
-      <a
-        class="insta-link"
-        href="https://www.instagram.com/macinato_coffee?igsh=a3F4c2xhcGVjN29n&utm_source=qr"
-        target="_blank"
-      >
-        Følg os på Instagram
-        <svg class="insta-icon" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-        </svg>
-      </a>
+      Tønder · Danmark · Åbner 2025
     </div>
+
   </div>
 
   <script>
-    // Lys-spot hover-effekt på kortene
-    const cards = document.querySelectorAll('.card-link');
-
-    cards.forEach(card => {
+    // Hover-effect lysfelt
+    document.querySelectorAll('.card-link').forEach(card => {
       const overlay = card.querySelector('.card-overlay');
-      const baseColor = card.dataset.color || '#ffffff';
 
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const xPercent = (x / rect.width) * 100;
-        const yPercent = (y / rect.height) * 100;
-
-        overlay.style.setProperty('--mx', xPercent + '%');
-        overlay.style.setProperty('--my', yPercent + '%');
-
-        overlay.style.background =
-          `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(255,255,255,0.4), transparent 60%),` +
-          `linear-gradient(145deg, ${baseColor}, rgba(0,0,0,0.85))`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        overlay.style.removeProperty('--mx');
-        overlay.style.removeProperty('--my');
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        overlay.style.setProperty('--mx', (x / r.width) * 100 + '%');
+        overlay.style.setProperty('--my', (y / r.height) * 100 + '%');
       });
     });
   </script>
