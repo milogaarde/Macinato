@@ -7,7 +7,86 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+  .corner-btn {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #111;
+    color: #fff;
+    border: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: 0.2s ease;
+    z-index: 999;
+  }
 
+  .corner-btn:hover {
+    opacity: 0.75;
+    transform: translateY(-2px);
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    background: #ffffff;
+    padding: 2rem 2.4rem;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 360px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+
+  .modal-content h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  #accessInput {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1.4px solid #ccc;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .confirm-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #111;
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .confirm-btn:hover {
+    background: #000;
+  }
+
+  .error {
+    margin-top: 0.6rem;
+    color: #b00020;
+    font-size: 0.85rem;
+    min-height: 1rem;
+  }
     body {
       min-height: 100vh;
       display: flex;
@@ -114,5 +193,53 @@
     </a>
 
   </div>
+  <!-- LILLE HJØRNE-KNAP -->
+<button id="accessBtn" class="corner-btn">Adgang</button>
+
+<!-- POPUP / MODAL -->
+<div id="accessModal" class="modal">
+  <div class="modal-content">
+    <h2>Indtast adgangskode</h2>
+    <input type="password" id="accessInput" placeholder="Kode" />
+    <button id="confirmBtn" class="confirm-btn">Fortsæt</button>
+    <p id="errorMsg" class="error"></p>
+  </div>
+</div>
+  <script>
+  const ACCESS_CODE = "44160751"; // adgangskoden
+
+  const accessBtn = document.getElementById("accessBtn");
+  const modal = document.getElementById("accessModal");
+  const confirmBtn = document.getElementById("confirmBtn");
+  const input = document.getElementById("accessInput");
+  const errorMsg = document.getElementById("errorMsg");
+
+  // Åbn modal
+  accessBtn.onclick = () => {
+    modal.style.display = "flex";
+    input.focus();
+  };
+
+  // Bekræft kode
+  confirmBtn.onclick = () => {
+    if (input.value === ACCESS_CODE) {
+      window.location.href = "https://macinato.dk/home"; 
+      // Ændr dette link til din hemmelige side
+    } else {
+      errorMsg.textContent = "Forkert kode. Prøv igen.";
+      input.value = "";
+      input.focus();
+    }
+  };
+
+  // Luk modal ved klik udenfor
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      input.value = "";
+      errorMsg.textContent = "";
+    }
+  };
+</script>
 </body>
 </html>
