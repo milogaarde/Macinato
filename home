@@ -279,7 +279,7 @@
     <!-- Billed-grid -->
     <section class="card-grid" id="forside">
       <a class="card-link" href="#omos" data-color="#1D4ED8">
-        <img src="origin.jpg" alt="Kaffefarm og landskab" />
+        <img src="origin.png" alt="Kaffefarm og landskab" />
         <div class="card-overlay"></div>
         <div class="card-content">
           <div class="card-kicker">Rødder</div>
@@ -288,7 +288,7 @@
       </a>
 
       <a class="card-link" href="#shop" data-color="#B45309">
-        <img src="beans.jpg" alt="Kaffebønner og poser" />
+        <img src="beans.png" alt="Kaffebønner og poser" />
         <div class="card-overlay"></div>
         <div class="card-content">
           <div class="card-kicker">Kaffen</div>
@@ -297,7 +297,7 @@
       </a>
 
       <a class="card-link" href="#roastery" data-color="#059669">
-        <img src="roastery.jpg" alt="Risteri" />
+        <img src="roastery.png" alt="Risteri" />
         <div class="card-overlay"></div>
         <div class="card-content">
           <div class="card-kicker">Roastery</div>
@@ -306,7 +306,7 @@
       </a>
 
       <a class="card-link" href="#find-os" data-color="#BE185D">
-        <img src="cafe.jpg" alt="Café og stemning" />
+        <img src="cafe.png" alt="Café og stemning" />
         <div class="card-overlay"></div>
         <div class="card-content">
           <div class="card-kicker">Caféen</div>
